@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 20px;
+}
+
+.container-score {
+    display: flex;
+    justify-content: space-between;
+}
+
+#player{
+    margin: 20px;
+}
+#comp{
+    margin: 20px;
+}

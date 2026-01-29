@@ -26,8 +26,8 @@ function getHumanChoice()
     return "invalid";
 }
 
-human_score = 0;
-computer_score = 0;
+let human_score = 0;
+let computer_score = 0;
 
 function computerWon(h, c)
 {
@@ -76,7 +76,48 @@ function playGame()
     }
 }
 
-playGame();
-console.log('Player score: ' + human_score);
-console.log('Computer score: ' + computer_score);
+let numRounds = 0;
+let gameEnd = false;
+
+function userClicked(event)
+{
+    if (numRounds < 5)
+    {
+        playerChoice = event.target.id; // Set to the button id
+
+        playRound(playerChoice, getComputerChoice());
+
+        const playerScore = document.querySelector('#player');
+        const compScore = document.querySelector('#comp');
+
+        playerScore.textContent = 'Player score: ' + human_score;
+        compScore.textContent = 'Computer score: ' + computer_score;
+        numRounds++
+    }
+    else if (!gameEnd)
+    {
+        gameEnd = true;
+        let msg = "It's a draw";
+        if (human_score > computer_score)
+            msg = 'Player Won :)';
+        else if (human_score < computer_score)
+            msg = 'Computer Won :('; 
+        alert(msg)
+    }
+}
+
+if (false)
+{
+    playGame(); // Play 5 rounds
+
+    console.log('Player score: ' + human_score);
+    console.log('Computer score: ' + computer_score);
+}
+else
+{
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => { button.addEventListener('click', userClicked) }); 
+
+}
+
 
