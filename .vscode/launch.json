@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/home/pakornp/repos/rock-paper-scissors/index.html"
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
